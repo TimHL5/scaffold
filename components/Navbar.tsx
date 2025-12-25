@@ -32,15 +32,15 @@ export default function Navbar() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         isScrolled
-          ? "bg-white/90 backdrop-blur-lg shadow-sm border-b border-slate-200"
+          ? "glass-strong shadow-lg shadow-nebula-500/10"
           : "bg-transparent"
       )}
     >
       <Container>
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center">
-            <span className="font-bold text-2xl text-steel-500">Scaffold</span>
+          <Link href="/" className="flex items-center group">
+            <span className="font-bold text-2xl gradient-text">Scaffold</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -49,7 +49,7 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-slate-600 hover:text-steel-500 transition-colors"
+                className="text-sm font-medium text-slate-300 hover:text-nebula-400 transition-colors"
               >
                 {link.label}
               </Link>
@@ -65,14 +65,14 @@ export default function Navbar() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 rounded-lg hover:bg-steel-50 transition-colors"
+            className="md:hidden p-2 rounded-lg hover:bg-white/10 transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? (
-              <X className="w-6 h-6 text-charcoal" />
+              <X className="w-6 h-6 text-slate-200" />
             ) : (
-              <Menu className="w-6 h-6 text-charcoal" />
+              <Menu className="w-6 h-6 text-slate-200" />
             )}
           </button>
         </div>
@@ -86,20 +86,20 @@ export default function Navbar() {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "tween", duration: 0.3 }}
-            className="fixed top-16 right-0 bottom-0 w-64 bg-white shadow-xl md:hidden border-l border-slate-200"
+            className="fixed top-16 right-0 bottom-0 w-64 glass-strong shadow-2xl md:hidden"
           >
             <div className="flex flex-col p-6 space-y-4">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-lg font-medium text-slate-600 hover:text-steel-500 transition-colors"
+                  className="text-lg font-medium text-slate-200 hover:text-nebula-400 transition-colors"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.label}
                 </Link>
               ))}
-              <div className="pt-4 border-t border-slate-200">
+              <div className="pt-4 border-t border-white/10">
                 <Button className="w-full" asChild>
                   <Link href="#waitlist">Get Early Access</Link>
                 </Button>

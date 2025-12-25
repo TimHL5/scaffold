@@ -22,29 +22,29 @@ const footerLinks = {
 
 export default function Footer() {
   return (
-    <footer className="bg-white border-t border-slate-200">
+    <footer className="glass-strong border-t border-white/10 relative z-10">
       <Container>
         <div className="py-12 lg:py-16">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
             {/* Logo and Tagline */}
             <div className="col-span-2 md:col-span-1">
               <Link href="/" className="flex items-center mb-4">
-                <span className="font-bold text-2xl text-steel-500">Scaffold</span>
+                <span className="font-bold text-2xl gradient-text">Scaffold</span>
               </Link>
-              <p className="text-sm text-slate-600">
+              <p className="text-sm text-slate-400">
                 Structure for what you&apos;re building.
               </p>
             </div>
 
             {/* Product Links */}
             <div>
-              <h3 className="font-semibold text-charcoal mb-4">Product</h3>
+              <h3 className="font-semibold text-white mb-4">Product</h3>
               <ul className="space-y-3">
                 {footerLinks.Product.map((link) => (
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="text-sm text-slate-600 hover:text-steel-500 transition-colors"
+                      className="text-sm text-slate-400 hover:text-nebula-400 transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -55,13 +55,13 @@ export default function Footer() {
 
             {/* Company Links */}
             <div>
-              <h3 className="font-semibold text-charcoal mb-4">Company</h3>
+              <h3 className="font-semibold text-white mb-4">Company</h3>
               <ul className="space-y-3">
                 {footerLinks.Company.map((link) => (
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="text-sm text-slate-600 hover:text-steel-500 transition-colors"
+                      className="text-sm text-slate-400 hover:text-nebula-400 transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -72,7 +72,7 @@ export default function Footer() {
 
             {/* Connect Links */}
             <div>
-              <h3 className="font-semibold text-charcoal mb-4">Connect</h3>
+              <h3 className="font-semibold text-white mb-4">Connect</h3>
               <ul className="space-y-3">
                 {footerLinks.Connect.map((link) => (
                   <li key={link.label}>
@@ -80,7 +80,7 @@ export default function Footer() {
                       href={link.href}
                       target={link.href.startsWith("http") ? "_blank" : undefined}
                       rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                      className="text-sm text-slate-600 hover:text-steel-500 transition-colors flex items-center"
+                      className="text-sm text-slate-400 hover:text-nebula-400 transition-colors flex items-center"
                     >
                       {link.icon && <link.icon className="w-4 h-4 mr-2" />}
                       {link.label}
@@ -92,8 +92,8 @@ export default function Footer() {
           </div>
 
           {/* Bottom Bar */}
-          <div className="pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-slate-600 text-center md:text-left">
+          <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-sm text-slate-400 text-center md:text-left">
               © {new Date().getFullYear()} Scaffold. Built for student founders.
             </p>
             <div className="flex gap-6">

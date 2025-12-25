@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 interface SectionHeaderProps {
-  title: string;
+  title: React.ReactNode;
   subtitle?: string;
   description?: string;
   className?: string;
@@ -31,15 +31,15 @@ export default function SectionHeader({
       transition={{ duration: 0.5 }}
     >
       {subtitle && (
-        <p className="text-primary-600 font-semibold mb-2 uppercase tracking-wide text-sm">
+        <p className="text-nebula-400 font-semibold mb-4 uppercase tracking-wide text-sm">
           {subtitle}
         </p>
       )}
-      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 text-balance">
+      <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 text-balance">
         {title}
       </h2>
       {description && (
-        <p className="text-lg text-gray-600 text-balance">{description}</p>
+        <p className="text-xl text-slate-300 text-balance leading-relaxed max-w-3xl mx-auto">{description}</p>
       )}
     </motion.div>
   );
