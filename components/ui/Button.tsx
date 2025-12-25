@@ -17,12 +17,12 @@ export interface ButtonProps {
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant = "default", size = "md", children, asChild, ...props }, ref) => {
-    const baseStyles = "inline-flex items-center justify-center font-medium rounded-lg transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 disabled:opacity-50 disabled:pointer-events-none";
+    const baseStyles = "inline-flex items-center justify-center font-medium rounded-lg transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-steel-500 disabled:opacity-50 disabled:pointer-events-none";
 
     const variants = {
-      default: "bg-primary-600 text-white hover:bg-primary-700 shadow-md hover:shadow-lg",
-      ghost: "text-gray-700 hover:bg-gray-100",
-      outline: "border-2 border-primary-600 text-primary-600 hover:bg-primary-50",
+      default: "bg-steel-500 text-white hover:bg-steel-600 shadow-md hover:shadow-lg",
+      ghost: "text-slate-600 hover:bg-steel-50",
+      outline: "border-2 border-steel-500 text-steel-600 hover:bg-steel-50",
     };
 
     const sizes = {

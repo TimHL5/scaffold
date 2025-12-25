@@ -1,101 +1,55 @@
 "use client";
 
 import Link from "next/link";
-import { Check, ArrowRight, Zap } from "lucide-react";
+import { Check, Zap } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Container from "@/components/Container";
 import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
-import SectionHeader from "@/components/ui/SectionHeader";
 import FadeIn from "@/components/ui/FadeIn";
 
 const plans = [
   {
     name: "Free",
     price: "$0",
-    description: "Perfect for side projects and learning",
+    period: "/month",
+    description: "Get started and validate your idea.",
     features: [
-      "Up to 3 GitHub Apps",
-      "1,000 webhook events/month",
-      "Community support",
-      "Basic templates",
-      "GitHub OAuth",
-      "Standard documentation",
+      "1 active roadmap",
+      "3-month max timeline",
+      "Weekly deliverables",
+      "Basic AI feedback",
+      "Community access",
     ],
-    cta: "Get Started",
-    href: "/signup",
+    cta: "Start Free",
+    href: "/#waitlist",
     popular: false,
+    variant: "outline" as const,
   },
   {
     name: "Pro",
-    price: "$29",
-    description: "For professional developers and small teams",
+    price: "$19",
+    period: "/month",
+    description: "Full power for serious builders.",
     features: [
-      "Unlimited GitHub Apps",
-      "100,000 webhook events/month",
-      "Priority email support",
-      "Premium templates",
-      "Advanced security features",
-      "Custom domains",
-      "Team collaboration (up to 5)",
-      "Analytics dashboard",
+      "Unlimited roadmaps",
+      "Up to 12-month timelines",
+      "Advanced AI feedback",
+      "Roadmap adaptation",
+      "Priority support",
+      "Export & share your roadmap",
     ],
-    cta: "Start Free Trial",
-    href: "/signup?plan=pro",
+    cta: "Join Waitlist",
+    href: "/#waitlist",
     popular: true,
-  },
-  {
-    name: "Enterprise",
-    price: "Custom",
-    description: "For large teams and organizations",
-    features: [
-      "Everything in Pro",
-      "Unlimited webhook events",
-      "Dedicated support",
-      "SLA guarantees",
-      "Custom integrations",
-      "Unlimited team members",
-      "Advanced analytics",
-      "On-premise deployment option",
-      "Custom training",
-    ],
-    cta: "Contact Sales",
-    href: "/contact",
-    popular: false,
-  },
-];
-
-const faqs = [
-  {
-    question: "Can I change plans later?",
-    answer: "Yes! You can upgrade or downgrade your plan at any time. Changes take effect immediately.",
-  },
-  {
-    question: "What happens if I exceed my webhook limit?",
-    answer: "We'll notify you when you approach your limit. You can upgrade your plan or purchase additional events as needed.",
-  },
-  {
-    question: "Do you offer refunds?",
-    answer: "We offer a 30-day money-back guarantee for all paid plans. No questions asked.",
-  },
-  {
-    question: "Can I cancel anytime?",
-    answer: "Yes, you can cancel your subscription at any time. You'll retain access until the end of your billing period.",
-  },
-  {
-    question: "What payment methods do you accept?",
-    answer: "We accept all major credit cards, PayPal, and can arrange invoicing for Enterprise customers.",
-  },
-  {
-    question: "Is there a free trial?",
-    answer: "Yes! Pro plan includes a 14-day free trial. No credit card required to start.",
+    variant: "default" as const,
   },
 ];
 
 export default function PricingPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
+    <div className="min-h-screen bg-warm-white">
       <Navbar />
 
       {/* Hero Section */}
@@ -103,15 +57,11 @@ export default function PricingPage() {
         <Container>
           <div className="text-center max-w-4xl mx-auto">
             <FadeIn>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-                Simple, Transparent Pricing
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-charcoal mb-6">
+                Simple pricing for serious builders.
               </h1>
-              <p className="text-xl text-gray-600 mb-4">
-                Choose the plan that&apos;s right for you. All plans include our core
-                features.
-              </p>
-              <p className="text-sm text-gray-500">
-                No hidden fees. Cancel anytime.
+              <p className="text-xl text-slate-600">
+                Start free. Upgrade when you&apos;re ready.
               </p>
             </FadeIn>
           </div>
@@ -121,131 +71,74 @@ export default function PricingPage() {
       {/* Pricing Cards */}
       <section className="pb-20 lg:pb-28">
         <Container>
-          <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {plans.map((plan, index) => (
               <FadeIn key={index} delay={index * 0.1}>
                 <Card
-                  className={`relative ${
+                  className={`relative h-full flex flex-col ${
                     plan.popular
-                      ? "border-2 border-primary-600 shadow-xl"
-                      : "border border-gray-200"
+                      ? "border-2 border-steel-500 shadow-xl"
+                      : "border border-slate-200"
                   }`}
                   hoverable={false}
                 >
                   {plan.popular && (
                     <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                      <div className="inline-flex items-center px-4 py-1 bg-gradient-to-r from-primary-600 to-secondary-600 text-white text-sm font-semibold rounded-full">
+                      <div className="inline-flex items-center px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-full">
                         <Zap className="w-4 h-4 mr-1" />
-                        Most Popular
+                        MOST POPULAR
                       </div>
                     </div>
                   )}
 
-                  <div className="text-center mb-8">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                      {plan.name}
-                    </h3>
-                    <div className="mb-2">
-                      <span className="text-5xl font-bold text-gray-900">
-                        {plan.price}
-                      </span>
-                      {plan.price !== "Custom" && (
-                        <span className="text-gray-600">/month</span>
-                      )}
+                  <div className="flex-1">
+                    <div className="text-center mb-8">
+                      <h3 className="text-2xl font-bold text-charcoal mb-2">
+                        {plan.name}
+                      </h3>
+                      <div className="mb-2">
+                        <span className="text-5xl font-bold text-charcoal">
+                          {plan.price}
+                        </span>
+                        <span className="text-slate-600">{plan.period}</span>
+                      </div>
+                      <p className="text-slate-600">{plan.description}</p>
                     </div>
-                    <p className="text-gray-600">{plan.description}</p>
-                  </div>
 
-                  <ul className="space-y-4 mb-8">
-                    {plan.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start">
-                        <Check className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                        <span className="text-gray-700">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
+                    <ul className="space-y-4 mb-8">
+                      {plan.features.map((feature, idx) => (
+                        <li key={idx} className="flex items-start">
+                          <Check className="w-5 h-5 text-success mr-3 mt-0.5 flex-shrink-0" />
+                          <span className="text-slate-600">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
 
                   <Button
                     className="w-full"
-                    variant={plan.popular ? "default" : "outline"}
+                    variant={plan.variant}
                     size="lg"
                     asChild
                   >
-                    <Link href={plan.href}>
-                      {plan.cta}
-                      <ArrowRight className="ml-2 w-5 h-5" />
-                    </Link>
+                    <Link href={plan.href}>{plan.cta}</Link>
                   </Button>
                 </Card>
               </FadeIn>
             ))}
           </div>
-        </Container>
-      </section>
 
-      {/* FAQ Section */}
-      <section className="py-20 lg:py-28 bg-gray-50">
-        <Container>
-          <SectionHeader
-            subtitle="FAQ"
-            title="Frequently Asked Questions"
-            description="Have questions? We've got answers."
-          />
-
-          <div className="max-w-3xl mx-auto space-y-6">
-            {faqs.map((faq, index) => (
-              <FadeIn key={index} delay={index * 0.05}>
-                <Card hoverable={false}>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                    {faq.question}
-                  </h3>
-                  <p className="text-gray-600">{faq.answer}</p>
-                </Card>
-              </FadeIn>
-            ))}
-          </div>
-
-          <FadeIn delay={0.4}>
+          <FadeIn delay={0.3}>
             <div className="text-center mt-12">
-              <p className="text-gray-600 mb-4">
-                Still have questions?
-              </p>
-              <Button variant="outline" size="lg" asChild>
-                <Link href="/contact">Contact Support</Link>
-              </Button>
-            </div>
-          </FadeIn>
-        </Container>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 lg:py-28">
-        <Container>
-          <FadeIn>
-            <div className="relative overflow-hidden bg-gradient-to-r from-primary-600 to-secondary-600 rounded-2xl p-12 lg:p-16 text-center">
-              <div className="relative z-10">
-                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                  Ready to start building?
-                </h2>
-                <p className="text-xl text-primary-100 mb-8 max-w-2xl mx-auto">
-                  Join thousands of developers using Scaffold to build amazing
-                  GitHub Apps.
-                </p>
-                <Button
-                  size="lg"
-                  className="bg-white text-primary-600 hover:bg-gray-100"
-                  asChild
+              <p className="text-slate-600">
+                Questions?{" "}
+                <a
+                  href="mailto:hello@scaffold.build"
+                  className="text-steel-500 hover:text-steel-600 font-semibold"
                 >
-                  <Link href="/signup">
-                    Get Started Free
-                    <ArrowRight className="ml-2 w-5 h-5" />
-                  </Link>
-                </Button>
-              </div>
-              <div className="absolute inset-0 opacity-10">
-                <div className="absolute top-0 left-0 w-64 h-64 bg-white rounded-full -translate-x-1/2 -translate-y-1/2" />
-                <div className="absolute bottom-0 right-0 w-64 h-64 bg-white rounded-full translate-x-1/2 translate-y-1/2" />
-              </div>
+                  Reach out at hello@scaffold.build
+                </a>
+              </p>
             </div>
           </FadeIn>
         </Container>
