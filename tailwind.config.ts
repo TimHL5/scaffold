@@ -11,7 +11,7 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        // Modern AI-inspired palette
+        // Marketing site palette
         nebula: {
           50: '#f5f3ff',
           100: '#ede9fe',
@@ -58,9 +58,19 @@ const config: Config = {
           cyan: '#06b6d4',
           pink: '#ec4899',
         },
+        // Campaign HQ palette
+        navy: '#0A0A1A',
+        surface: '#111122',
+        card: '#1A1A2E',
+        vermillion: '#E94560',
+        electric: '#4361EE',
+        success: '#10B981',
+        warning: '#F59E0B',
+        pink: '#EC4899',
+        purple: '#7C3AED',
       },
       fontFamily: {
-        sans: ['-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', 'sans-serif'],
+        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', 'sans-serif'],
       },
     },
   },
